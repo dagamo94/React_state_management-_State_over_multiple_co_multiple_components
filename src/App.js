@@ -17,12 +17,17 @@ For the tests to pass, make sure you use Increase Font size when declaring the f
 function App() {
   const [fontSize, setFontSize] = useState(12);
   const [loggedIn, setLoggedIn] = useState(false);
+  
   const toggleLoggedIn = () => setLoggedIn(!loggedIn);
-  const fontSizeIncrease = () => setFontSize(currSize => currSize + 1);
+  const handleFontSizeIncrease = () =>{
+     setFontSize(currSize => currSize + 2)};
+
+  console.log("Current Font Size: "+fontSize);
+
   return (
     <div>
-      <Header loggedIn={loggedIn} handleLoggedInClick={toggleLoggedIn} handleFontSizeClick={fontSizeIncrease} btnText="Increase Font Size" />
-      <Content loggedIn={loggedIn} />
+      <Header loggedIn={loggedIn} handleLoggedInClick={toggleLoggedIn} handleFontSizeClick={handleFontSizeIncrease} btnText="Increase Font Size" />
+      <Content loggedIn={loggedIn} fontSize={fontSize}/>
     </div>
   );
 }
